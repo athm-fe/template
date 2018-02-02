@@ -6,12 +6,12 @@
 ```html
 <div id="app"></div>
 <script id="tplDemo" type="text/tpl">
-  <h2>hello: <%= name %></h2>
-  <article><%- content %></article>
+  <h2>hello: {{= name }}</h2>
+  <article>{{- content }}</article>
   <ul>
-    <% for (var i = 0; i < list.length; i++) { %>
-      <li><%= list[i] %></li>
-    <% } %>
+    {{ for (var i = 0; i < list.length; i++) { }}
+      <li>{{= list[i] }}</li>
+    {{ } }}
   </ul>
 </script>
 ```
@@ -36,8 +36,10 @@ $app.append($(result));
 
 ## 语法说明
 
-`<%= %>` 表示插值，会进行 HTML 转义
-`<%- %>` 同样表示插值，但是不会对 HTML 进行转义
-`<% %>` 里面可以写任何的 JS 代码
+`{{= }}` 表示插值，会进行 HTML 转义
+`{{- }}` 同样表示插值，但是不会对 HTML 进行转义
+`{{ }}` 里面可以写任何的 JS 代码
 
 注意：关于转义部分，和 underscore 有一些不同，underscore 的 `<%= %>` 不会进行 HTML 转义，`<%- %>` 才表示转义。
+
+因为 .Net 使用了 `<% %>` ，所以不能使用这个。
