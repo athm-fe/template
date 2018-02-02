@@ -1,0 +1,42 @@
+{
+  "name": "@autofe/template",
+  "version": "0.1.0",
+  "description": "A Template Engine for browser",
+  "keywords": [
+    "library",
+    "autohome",
+    "template"
+  ],
+  "main": "dist/template.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "npm run lint && rollup -c ./rollup.config.js",
+    "release": "npm run build && npm run minify",
+    "minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --output dist/template.min.js dist/template.js",
+    "lint": "eslint lib test",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jpuncle <zhangxingkai@autohome.com.cn>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/athm-fe/template.git"
+  },
+  "license": "MIT",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-autofe-app": "^1.2.0",
+    "eslint": "^4.15.0",
+    "rollup": "^0.54.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "uglify-js": "^3.3.7"
+  }
+}

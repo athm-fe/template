@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Template</title>
+</head>
+<body>
+  <h1>Template</h1>
+  <div id="app"></div>
+  <script id="tplDemo" type="text/tpl">
+    <h2>hello: <%= name %></h2>
+    <article><%- content %></article>
+    <ul>
+      <% if (var i = 0; i < list.length; i++) { %>
+        <li><%= list[i] %></li>
+      <% } %>
+    </ul>
+  </script>
+
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="dist/template.js"></script>
+  <script>
+    var data = {
+      name: 'Tom <em>Escaped</em>',
+      content: 'I am from <strong><em>China</em></strong>',
+      list: ['React', 'Vue', 'Webpack', 'Gulp']
+    };
+    var $app = $('#app');
+
+    // 方式一: 直接传入数据
+    $('#tplDemo').template(data).appendTo($app);
+
+    // 方式二：先预编译
+    var compiled = $('#tplDemo').template();
+    var result = compiled(data);
+    $app.append($(result));
+  </script>
+</body>
+</html>
