@@ -1,5 +1,5 @@
 /*!
- * @autofe/template v0.2.0
+ * @autofe/template v0.2.1
  * (c) 2018 Autohome Inc.
  * Released under the MIT License.
  */
@@ -39,9 +39,9 @@ __$.escape = function (string) {
 // By default, Underscore uses ERB-style template delimiters, change the
 // following template settings to use alternative delimiters.
 var templateSettings = {
-  evaluate: /\{\{([\s\S]+?)\}\}/g,
-  interpolate: /\{\{-([\s\S]+?)\}\}/g,
-  escape: /\{\{=([\s\S]+?)\}\}/g
+  evaluate: /\{%([\s\S]+?)%\}/g,
+  interpolate: /\{%-([\s\S]+?)%\}/g,
+  escape: /\{%=([\s\S]+?)%\}/g
 };
 
 // When customizing `templateSettings`, if you don't want to define an
