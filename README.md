@@ -1,6 +1,6 @@
 # Template
 
-该模版修改自 [underscore.js](http://underscorejs.org) .
+该模版修改自 [underscore.js](http://underscorejs.org) 。
 
 模版：
 ```html
@@ -33,3 +33,11 @@ var compiled = $('#tplDemo').template();
 var result = compiled(data);
 $app.append($(result));
 ```
+
+## 语法说明
+
+`<%= %>` 表示插值，会进行 HTML 转义
+`<%- %>` 同样表示插值，但是不会对 HTML 进行转义
+`<% %>` 里面可以写任何的 JS 代码
+
+注意：关于转义部分，和 underscore 有一些不同，underscore 的 `<%= %>` 不会进行 HTML 转义，`<%- %>` 才表示转义。
